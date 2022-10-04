@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7BE2A5E0-9392-421C-BE63-93D92BBC0478}</ProjectGuid>
+    <TemplateGuid>{1bc93793-694f-48fe-9372-81e2b05556fd}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">Win32</Platform>
+    <RootNamespace>driver</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <Driver_SpectreMitigation>false</Driver_SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <Driver_SpectreMitigation>false</Driver_SpectreMitigation>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <EnableInf2cat>false</EnableInf2cat>
+    <IncludePath>C:\Users\catahustle\Desktop\CodeVirtualizer\Include\C;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\catahustle\Desktop\CodeVirtualizer\Lib\Device Drivers\64-bit;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <EnableInf2cat>false</EnableInf2cat>
+    <IncludePath>C:\Users\catahustle\Desktop\CodeVirtualizer\Include\C;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\catahustle\Desktop\CodeVirtualizer\Lib\Device Drivers\64-bit;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <AdditionalDependencies>VirtualizerDDK.lib;Netio.lib;$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <ClCompile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <Optimization>MinSpace</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>false</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>VirtualizerDDK.lib;Netio.lib;$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="connection\berkeley.cpp" />
+    <ClCompile Include="connection\connection.cpp" />
+    <ClCompile Include="connection\ksocket.cpp" />
+    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="hooks\hooks.cpp" />
+    <ClCompile Include="injector\injector.cpp" />
+    <ClCompile Include="ntdll\ntdll.cpp" />
+    <ClCompile Include="ssdt\ssdt.cpp" />
+    <ClCompile Include="utils\remote_proc.cpp" />
+    <ClCompile Include="utils\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="connection\berkeley.h" />
+    <ClInclude Include="connection\connection.h" />
+    <ClInclude Include="connection\ksocket.h" />
+    <ClInclude Include="hooks\hooks.h" />
+    <ClInclude Include="injector\injector.h" />
+    <ClInclude Include="ntdll\ntdll.h" />
+    <ClInclude Include="ssdt\ssdt.h" />
+    <ClInclude Include="utils\address.h" />
+    <ClInclude Include="utils\hash.h" />
+    <ClInclude Include="utils\remote_proc.h" />
+    <ClInclude Include="utils\utils.h" />
+    <ClInclude Include="utils\xorstr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="utils\masm.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="ntdll\ntdll.cpp">
+      <Filter>ntdll</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\utils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ssdt\ssdt.cpp">
+      <Filter>ssdt</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\hooks.cpp">
+      <Filter>hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="connection\berkeley.cpp">
+      <Filter>connection</Filter>
+    </ClCompile>
+    <ClCompile Include="connection\ksocket.cpp">
+      <Filter>connection</Filter>
+    </ClCompile>
+    <ClCompile Include="connection\connection.cpp">
+      <Filter>connection</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\remote_proc.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="injector\injector.cpp">
+      <Filter>injector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ntdll">
+      <UniqueIdentifier>{5066868e-9920-46d7-b870-31e71e6ba3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{83fa0b5c-ad70-452b-8780-a04f4193d75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ssdt">
+      <UniqueIdentifier>{e879c1be-ac7f-4273-b38c-60e0e6f05ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hooks">
+      <UniqueIdentifier>{9d1e3745-8d54-424b-814a-c2fbcd2c6a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connection">
+      <UniqueIdentifier>{b47e1597-d2d7-46db-93ee-6f5fb8fcfdb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="injector">
+      <UniqueIdentifier>{f3083cd0-5439-473e-bdea-c93a0b0e4cf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ntdll\ntdll.h">
+      <Filter>ntdll</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\hash.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\xorstr.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ssdt\ssdt.h">
+      <Filter>ssdt</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks\hooks.h">
+      <Filter>hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="connection\connection.h">
+      <Filter>connection</Filter>
+    </ClInclude>
+    <ClInclude Include="connection\berkeley.h">
+      <Filter>connection</Filter>
+    </ClInclude>
+    <ClInclude Include="connection\ksocket.h">
+      <Filter>connection</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\remote_proc.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="injector\injector.h">
+      <Filter>injector</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\address.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="utils\masm.asm">
+      <Filter>utils</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>
